@@ -4,8 +4,8 @@ namespace App\Filament\Resources\Items\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class ItemForm
@@ -14,9 +14,7 @@ class ItemForm
     {
         return $schema
             ->components([
-                TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
+
                 Select::make('type')
                     ->options(['Lost' => 'Lost', 'Found' => 'Found'])
                     ->required(),
@@ -24,17 +22,22 @@ class ItemForm
                     ->required(),
                 Textarea::make('description')
                     ->columnSpanFull(),
-                TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('location_id')
-                    ->required()
-                    ->numeric(),
+
+                Select::make('category_id')
+                    ->relationship(name: 'category', titleAttribute: 'category_name')
+                    ->required(),
+
+                Select::make('location_id')
+                    ->relationship(name: 'location', titleAttribute: 'location_name')
+                    ->required(),
+
                 Select::make('status')
                     ->options(['Active' => 'Active', 'Resolved' => 'Resolved'])
                     ->default('Active')
                     ->required(),
                 DateTimePicker::make('reported_at')
+                    ->native(false)
+                    ->default(now())
                     ->required(),
             ]);
     }

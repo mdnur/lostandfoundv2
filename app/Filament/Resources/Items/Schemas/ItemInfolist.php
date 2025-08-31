@@ -11,7 +11,7 @@ class ItemInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('user_id')
+                TextEntry::make('user.name')
                     ->numeric(),
                 TextEntry::make('type'),
                 TextEntry::make('item_name'),

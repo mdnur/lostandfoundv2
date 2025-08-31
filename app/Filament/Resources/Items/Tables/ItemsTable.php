@@ -15,16 +15,16 @@ class ItemsTable
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')
+                TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('type'),
                 TextColumn::make('item_name')
                     ->searchable(),
-                TextColumn::make('category_id')
+                TextColumn::make('category.category_name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('location_id')
+                TextColumn::make('location.location_name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('status'),
