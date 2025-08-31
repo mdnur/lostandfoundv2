@@ -1,30 +1,25 @@
 <?php
 
-namespace App\Filament\Resources\Claims\Tables;
+namespace App\Filament\Resources\Items\Resources\Comments\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class ClaimsTable
+class CommentsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('item.id')
+                TextColumn::make('user_id')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('claimer.name')
+                TextColumn::make('item_id')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('claim_date')
-                    ->date()
-                    ->sortable(),
-                TextColumn::make('status'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -38,7 +33,6 @@ class ClaimsTable
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

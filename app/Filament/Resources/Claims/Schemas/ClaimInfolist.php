@@ -13,7 +13,7 @@ class ClaimInfolist
             ->components([
                 TextEntry::make('item_id')
                     ->numeric(),
-                TextEntry::make('claimer_id')
+                TextEntry::make('claimer.name')
                     ->numeric(),
                 TextEntry::make('claim_date')
                     ->date(),

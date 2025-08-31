@@ -28,4 +28,9 @@ class Item extends Model
     {
         return $this->hasMany(Claim::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

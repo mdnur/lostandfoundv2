@@ -16,6 +16,6 @@ class Claim extends Model
 
     public function claimer()
     {
-        return $this->belongsTo(User::class, 'claimer_id');
+        return $this->belongsTo(User::class, 'claimer_id', 'id');
     }
 }

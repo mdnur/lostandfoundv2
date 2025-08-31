@@ -13,13 +13,24 @@ class ClaimForm
     {
         return $schema
             ->components([
-                TextInput::make('item_id')
+                // TextInput::make('item_id')
+
+                //     ->required()
+                //     ->numeric(),
+
+                Select::make('item_id')
+                    ->relationship('item', 'id') // Specify 'name' as the display column
                     ->required()
-                    ->numeric(),
-                TextInput::make('claimer_id')
+                    ->searchable()
+                    ->preload(),
+
+                Select::make('claimer_id')
+                    ->relationship('claimer', 'id') // Specify 'name' as the display column
                     ->required()
-                    ->numeric(),
-                DatePicker::make('claim_date'),
+                    ->searchable()
+                    ->preload(),
+
+                DatePicker::make('claim_date')->native(false)->required(),
                 Select::make('status')
                     ->options(['Pending' => 'Pending', 'Approved' => 'Approved', 'Rejected' => 'Rejected'])
                     ->default('Pending')

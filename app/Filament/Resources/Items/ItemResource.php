@@ -6,6 +6,8 @@ use App\Filament\Resources\Items\Pages\CreateItem;
 use App\Filament\Resources\Items\Pages\EditItem;
 use App\Filament\Resources\Items\Pages\ListItems;
 use App\Filament\Resources\Items\Pages\ViewItem;
+use App\Filament\Resources\Items\RelationManagers\ClaimsRelationManager;
+use App\Filament\Resources\Items\RelationManagers\CommentRelationManager;
 use App\Filament\Resources\Items\Schemas\ItemForm;
 use App\Filament\Resources\Items\Schemas\ItemInfolist;
 use App\Filament\Resources\Items\Tables\ItemsTable;
@@ -42,7 +44,8 @@ class ItemResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ClaimsRelationManager::class,
+            CommentRelationManager::class,
         ];
     }
 
