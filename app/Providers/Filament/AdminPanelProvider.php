@@ -25,6 +25,8 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->loginRouteSlug('login')
+            ->registrationRouteSlug('register')
             ->profile()
             ->login()
             ->colors([
