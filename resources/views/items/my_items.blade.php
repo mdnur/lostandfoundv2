@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <a href="{{ route('items.create') }}" class="px-4 py-2 text-black bg-blue-600 rounded">+ Add Item</a>
+        <a href="{{ route('items.create') }}" class="px-4 py-2 text-white bg-blue-600 rounded">+ Add Item</a>
 
         @if (session('success'))
         <div class="p-2 mt-4 text-green-800 bg-green-200 rounded">
@@ -52,11 +52,11 @@
                             <span class="text-green -600">Claimed |</span>
                             @endif
                             <a href="{{ route('items.show', $item) }}" class="text-blue-600">View</a> |
-                            {{-- <a href="{{ route('items.edit', $item) }}" class="text-yellow-600">Edit</a> | --}}
-                            {{-- <form action="{{ route('items.destroy', $item) }}" method="POST" class="inline">
-                            @csrf @method('DELETE')
-                            <button type="submit" class="text-red-600" onclick="return confirm('Delete this item?')">Delete</button>
-                            </form> --}}
+                            <a href="{{ route('items.edit', $item) }}" class="text-yellow-600">Edit</a> |
+                            <form action="{{ route('items.destroy', $item) }}" method="POST" class="inline">
+                                @csrf @method('DELETE')
+                                <button type="submit" class="text-red-600" onclick="return confirm('Delete this item?')">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

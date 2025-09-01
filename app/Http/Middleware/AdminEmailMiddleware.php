@@ -16,7 +16,7 @@ class AdminEmailMiddleware
     public function handle(Request $request, Closure $next)
     {
         // Only allow this email to access Filament
-        if (Auth::user()->email === 'mdnur701@gmail.com') {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
